@@ -20,7 +20,6 @@
  #include <stdio.h>
  #include "math_operations.h"
 
-<<<<<<< HEAD
  int main(void){
         int a = 10;
         int b = 5;
@@ -31,8 +30,5 @@
         printf("%d / %d = %.2f\n", a, b, divide_numbers(a, b));
     
         return 0;
-=======
- int main(){
->>>>>>> 912c3621991aeece9cd2c0bbcd716709c748994d
     
  }

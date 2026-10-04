@@ -1,5 +1,5 @@
 /**
- * @file task3_file_io.c
+ * @file task3.c
  * @author Daniela Mendez Ramirez
  * @date 2026-10-04
  * @version 1.0
