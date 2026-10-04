@@ -1,0 +1,10 @@
+# Compiled binaries and build artifacts
+*.o
+*.out
+a.out
+task1_hello
+math_demo
+
+# Editor / OS files
+.vscode/
+.DS_Store
