@@ -13,7 +13,7 @@
  *       -o: Specifies the output executable name
  */
 
- #define _POSIX_C_SOURCE_200809L
+ #define _POSIX_C_SOURCE 200809L
  #include <stdio.h>
  #include <sys/types.h>
  #include <sys/wait.h>
