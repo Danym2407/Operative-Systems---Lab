@@ -13,7 +13,7 @@
  *       -o: Specifies the output executable name
  */
 
- #dfine _POSIX_C_SOURCE_200809L
+ #define _POSIX_C_SOURCE_200809L
  #include <stdio.h>
  #include <sys/types.h>
  #include <sys/wait.h>
@@ -34,15 +34,21 @@
         /*TODO 2: Use execl() to run ./task2_worker with argument COMP2040
         * First argument: path; second: argv[0]; third: word; final: (char *)NULL.
         */
+        execl("./task2_worker", "task2_worker", "COMP2040", (char *)NULL);
         perror("execl"); /* Reached only if exec fails. */
         _exit(127);
     }
 
     int status = 0;
     /*TODO 3: Use waitpid(pid, &status, 0). Check for errors.*/
+    if (waitpid(pid, &status, 0) < 0) {
+        perror("waitpid");
+        return 1;
+    }
     /* TODO 4: If WIFEXITED(status), print WEXITSTATUS(status). */
-    puts("Starter file: collect and report the child's real exit status.");
-    (void)status;
+    if (WIFEXITED(status)) {
+        printf("parent: child exited with status %d\n", WEXITSTATUS(status));
+    }
     return 0;
 
  }
