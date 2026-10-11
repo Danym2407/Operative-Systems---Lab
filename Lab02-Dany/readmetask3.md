@@ -53,7 +53,7 @@ gcc -std=c11 -Wall -Wextra task3_pipe.c -o task3_pipe
 ```bash
 Parent received: Hello from the child
 ```
-
+---
 # English Version (`README.md`)
 
 ```markdown
