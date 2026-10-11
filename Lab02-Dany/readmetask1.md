@@ -1,3 +1,4 @@
+---
 # Laboratorio 02 - Tarea 1: `fork()` y Memoria Privada de Procesos
 
 Este programa demuestra cómo el sistema operativo crea un proceso hijo independiente usando la llamada al sistema `fork()`, cómo cada proceso mantiene su propio espacio de memoria privado y cómo el proceso padre sincroniza la ejecución esperando a que el hijo termine mediante `waitpid()`.
