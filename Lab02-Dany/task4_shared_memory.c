@@ -1,5 +1,5 @@
 /**
- * @file task3_pipe.c
+ * @file task4_shared_memory.c
  * @author: Daniela Mendez Ramirez
  * @date: 2026-10-11
  * @version 1.0
