@@ -1,3 +1,18 @@
+/**
+ * @file arreglo_de_estructuras.c
+ * @author: Daniela Mendez Ramirez
+ * @date: 2026-11-02
+ * @version 1.0
+ * 
+ * @details This code is part of a series of exercises to practice C programming and the use of structures, pointers, and memory management. 
+ *          It demonstrates basic compilation with warning and debugging flags.
+ * 
+ * @note Compilation command:
+ *       gcc -Wall -Wextra arreglo_de_estructuras.c -o arreglo_de_estructuras
+ *       -Wall: Enables common compiler warnings
+ *       -Wextra: Enables extra warning flags.
+ *       -o: Specifies the output executable name
+ */
 
 #include <stdio.h>
 #include <string.h>

@@ -1,7 +1,7 @@
 /**
  * @file bank_exercise.c
  * @author: Daniela Mendez Ramirez
- * @date: 2026-10-04
+ * @date: 2026-11-02
  * @version 1.0
  * 
  * @details This code is part of a series of exercises to practice C programming and the use of structures, pointers, and memory management. 
@@ -30,7 +30,7 @@ void display_accounts(Account accounts[], int number_of_accounts);
 void deposit_money(Account *account, float amount);
 int withdraw_money(Account *account, float amount);
 Account *find_account(Account accounts[], int number_of_accounts, int account_id);
-void display_a_single_account(Account accounts[], int account_id, int number_of_accounts);
+void display_a_single_account(Account *account);
 
 /**** Main function ****/
  int main (void){
@@ -65,28 +65,29 @@ void display_a_single_account(Account accounts[], int account_id, int number_of_
 
     /* Display updated account information */
     printf("\nDisplay updated account information from Daniela +500\n");
-    find_account_ptr = find_account(accounts, 3, 101);
+    display_a_single_account(&accounts[0]);
 
     /* Withdraw money from Account 2 */
     printf("\nDisplay updated account information from Eduardo -300\n");
     withdraw_money(&accounts[1], 300.0);
     /* Display updated account information */
-    find_account_ptr = find_account(accounts, 3, 102);
+    display_a_single_account(&accounts[1]);
 
     /* Withdraw 1000 from Account 3 */
     printf("\nDisplay updated account information from Andrea -1000\n");
     withdraw_money(&accounts[2], 1000.0);
     /* Display updated account information */
-   find_account_ptr = find_account(accounts, 3, 103);
-
+    display_a_single_account(&accounts[2]);
+    
     /* Find account by ID 102 and display its information */
     printf("\nSearching for account with ID 102:\n");
     find_account_ptr = find_account(accounts, 3, 102);
-    display_a_single_account(accounts, 102, 3);
+    display_a_single_account(find_account_ptr);
 
     /* Try to find account 999*/
     printf("Searching for 999 id account");
     find_account_ptr = find_account(accounts, 3, 999);
+    display_a_single_account(find_account_ptr);
 
     /* Display everything*/
     display_accounts(accounts, 3);
@@ -158,12 +159,10 @@ Account *find_account(Account accounts[], int number_of_accounts, int account_id
 
     for (int i = 0; i < number_of_accounts; i++){
         if (accounts[i].id == account_id) {
-            printf("Account found: %s with balance %.2f\n", accounts[i].owner, accounts[i].balance);
             return &accounts[i];
         }
     }
 
-    printf("Account with ID %d not found.\n", account_id);
     return NULL;
     
 }
@@ -177,12 +176,13 @@ Account *find_account(Account accounts[], int number_of_accounts, int account_id
  * @return None.
  */
 
-void display_a_single_account(Account accounts[], int account_id, int number_of_accounts){
-    for (int i = 0; i < number_of_accounts ; i++){
-        if (accounts[i].id == account_id){
-            printf("\nId account: %d\n", accounts[i].id);
-            printf("Owner Name %s\n", accounts[i].owner);
-            printf("Balance %f\n", accounts[i].balance);
-        }
+void display_a_single_account(Account *account){
+
+    if (account == NULL) {
+        printf("\nAccount not found.\n");
+        return;
     }
+    printf("\nId account: %d\n", account->id);
+    printf("Owner Name: %s\n", account->owner);
+    printf("Balance: %.2f\n", account->balance);
 }
